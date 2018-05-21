@@ -248,6 +248,10 @@ import {mapActions, mapState} from 'vuex'
 
 
 ```js
+└── doctor
+    ├── detail.vue
+    └── list.vue
+
 <script>
   import {mapActions, mapState} from 'vuex'
 
