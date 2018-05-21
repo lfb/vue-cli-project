@@ -8,8 +8,7 @@ Vue.config.productionTip = false
 Vue.use(VueLocalStorage);
 
 router.beforeEach((to, from, next) => {
-  // 路由进入需要做什么
-  console.log('beforeEach..');
+  next()
 });
 
 router.afterEach(() => {
