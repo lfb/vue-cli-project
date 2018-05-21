@@ -1,6 +1,6 @@
 ## vue-project
 - 已构建配置好的vuejs全家桶项目- vue-router，vuex，api，axios. vue-ls下载即使用项目开发。
-- 喜欢或对你又帮助的话请点star✨✨，Thanks.
+- 喜欢或对你有帮助的话请点star✨✨，Thanks.
 > A Vue.js project
 
 ### 使用
