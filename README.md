@@ -1,6 +1,6 @@
 ## vue-project
 - 已构建配置好的vuejs全家桶项目- vue-router，vuex，api，axios. vue-ls下载即使用项目开发。
-- 喜欢的话请点star✨✨，Thanks.
+- 喜欢或对你又帮助的话请点star✨✨，Thanks.
 > A Vue.js project
 
 ### 使用
@@ -282,4 +282,4 @@ import {mapActions, mapState} from 'vuex'
 </script>
 ```
 
-#### 核心就是把数据和页面分离，细分把接口，请求数据用vuex做处理，在页面获取数据都做统一管理项目。
+#### 核心就是把数据和页面分离，细分把接口，请求数据用vuex做处理，在页面获取数据都做统一管理项目。可以具体看项目里面的代码。
