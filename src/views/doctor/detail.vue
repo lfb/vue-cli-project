@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="wrap">
     医生详情页
   </section>
 </template>
@@ -38,6 +38,6 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
 </style>

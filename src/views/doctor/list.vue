@@ -1,6 +1,8 @@
 <template>
-  <section>
-    医生首页
+  <section class="content">
+    <div class="content-box">
+      医生首页
+    </div>
   </section>
 </template>
 
@@ -18,10 +20,8 @@
       })
     },
     async created() {
-      // 医生类型
-      let params = {type: 'EXP'};
       // 获取医生列表
-      await this.getDoctorList(params);
+      // await this.getDoctorListFn();
     },
     methods: {
       ...mapActions([
@@ -29,7 +29,21 @@
         'getDoctorList'
       ]),
 
-      // 路由跳转方法
+      /**
+       * 获取医生列表
+       * @returns {Promise<void>}
+       */
+      async getDoctorListFn() {
+        // 医生类型
+        let params = {type: 'EXP'};
+        // 获取医生列表
+        await this.getDoctorList(params);
+      },
+
+      /**
+       * 路由跳转方法
+       * @param link
+       */
       routeLink(link) {
         this.$router.push({path: link});
       },
@@ -37,6 +51,16 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 
+    &-box {
+      font-size: 32px;
+      margin: 32px auto;
+    }
+  }
 </style>
