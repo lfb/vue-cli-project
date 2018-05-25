@@ -286,4 +286,4 @@ import {mapActions, mapState} from 'vuex'
 </script>
 ```
 
-#### 核心就是把数据和页面分离，细分把接口，请求数据用vuex做处理，在页面获取数据都做统一管理项目。可以具体看项目里面的代码。
+#### 核心就是把API数据和页面分离，细分把接口，请求API数据方法放在vuex做处理，在页面映射vuex的mapActions提供的接口方法获取数据，做统一管理项目。喜欢或对你有帮助的话请点star✨✨，Thanks.
