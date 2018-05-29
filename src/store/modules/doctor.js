@@ -31,6 +31,7 @@ const actions = {
   async getDoctorList({state, commit}, params) {
     let ret = await doctor.list(params);
     commit(types.SET_DOCTOR_LIST, ret.data.data);
+    return ret;
   },
 
   /**
@@ -43,6 +44,7 @@ const actions = {
   async getDoctorDetail({state, commit}, id) {
     let ret = await doctor.detail(id);
     commit(types.SET_DOCTOR_DETAIL, ret.data.data);
+    return ret;
   }
 };
 
