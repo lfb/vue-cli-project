@@ -1,6 +1,7 @@
 import Util from '../libs/util'
 import qs from 'qs'
 import Vue from 'vue'
+import store from '../store/index'
 
 Util.ajax.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest'
@@ -11,6 +12,10 @@ Util.ajax.interceptors.request.use(config => {
    * 在这里做loading ...
    * @type {string}
    */
+  if (config.shouldLoading) {
+    // 开启loading
+    // store.dispatch('loading/openLoading')
+  }
 
   // 获取token
   config.headers.common['Authorization'] = 'Bearer ' + Vue.ls.get("web-token");
@@ -33,6 +38,8 @@ Util.ajax.interceptors.response.use(response => {
   if (newToken) {
     Vue.ls.set("web-token", newToken);
   }
+  // 关闭loading
+  closeLoading()
 
   return response;
 
@@ -51,6 +58,8 @@ Util.ajax.interceptors.response.use(response => {
     // 处理413权限不足
 
   }
+  // 关闭loading
+  closeLoading()
 
   return Promise.reject(response)
 
@@ -64,6 +73,7 @@ export default {
       url: url,
       data: qs.stringify(data),
       timeout: 30000,
+      shouldLoading: data.shouldLoading === undefined ? true : data.shouldLoading,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
@@ -75,6 +85,7 @@ export default {
       method: 'get',
       url: url,
       params,
+      shouldLoading: params.shouldLoading === undefined ? true : params.shouldLoading,
     })
   },
 
@@ -82,7 +93,8 @@ export default {
     return Util.ajax({
       method: 'delete',
       url: url,
-      params
+      params,
+      shouldLoading: params.shouldLoading === undefined ? true : params.shouldLoading,
     })
   },
 
@@ -92,10 +104,22 @@ export default {
       method: 'put',
       url: url,
       data: qs.stringify(data),
+      shouldLoading: data.shouldLoading === undefined ? true : data.shouldLoading,
       timeout: 30000,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     })
   }
+}
+
+/**
+ * 关闭loading
+ */
+function closeLoading() {
+  // 延迟100毫秒关闭
+  setTimeout(() => {
+    // 关闭loading
+    // store.dispatch('loading/closeLoading')
+  }, 100)
 }

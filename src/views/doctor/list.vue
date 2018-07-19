@@ -1,7 +1,7 @@
 <template>
   <section class="content">
     <div class="content-box">
-      医生首页
+      Hello vuejs.
     </div>
   </section>
 </template>
