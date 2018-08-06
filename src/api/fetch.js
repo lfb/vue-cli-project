@@ -66,21 +66,21 @@ Util.ajax.interceptors.response.use(response => {
 });
 
 export default {
-  post(url, data) {
+  post(url, params = {}) {
 
     return Util.ajax({
       method: 'post',
       url: url,
-      data: qs.stringify(data),
+      data: qs.stringify(params),
       timeout: 30000,
-      shouldLoading: data.shouldLoading === undefined ? true : data.shouldLoading,
+      shouldLoading: params.shouldLoading === undefined ? true : params.shouldLoading,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     })
   },
 
-  get(url, params) {
+  get(url, params = {}) {
     return Util.ajax({
       method: 'get',
       url: url,
@@ -89,7 +89,7 @@ export default {
     })
   },
 
-  delete(url, params) {
+  delete(url, params = {}) {
     return Util.ajax({
       method: 'delete',
       url: url,
@@ -98,13 +98,13 @@ export default {
     })
   },
 
-  put(url, data) {
+  put(url, params = {}) {
 
     return Util.ajax({
       method: 'put',
       url: url,
-      data: qs.stringify(data),
-      shouldLoading: data.shouldLoading === undefined ? true : data.shouldLoading,
+      data: qs.stringify(params),
+      shouldLoading: params.shouldLoading === undefined ? true : params.shouldLoading,
       timeout: 30000,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
