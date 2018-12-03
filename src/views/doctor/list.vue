@@ -19,25 +19,30 @@
         doctorList: state => state.doctor.doctorList,
       })
     },
-    async created() {
+    created() {
       // 获取医生列表
-      // await this.getDoctorListFn();
+      // this.fetchData();
     },
     methods: {
-      ...mapActions([
+      ...mapActions({
         // 获取医生列表
-        'getDoctorList'
-      ]),
+        'getDoctorList': 'doctor/getDoctorList'
+      }),
 
       /**
        * 获取医生列表
        * @returns {Promise<void>}
        */
-      async getDoctorListFn() {
+      async fetchData() {
         // 医生类型
         let params = {type: 'EXP'};
         // 获取医生列表
-        await this.getDoctorList(params);
+        try {
+          await this.getDoctorList(params);
+
+        }catch (e) {
+
+        }
       },
 
       /**
@@ -51,15 +56,15 @@
   }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
   .content {
     position: absolute;
     width: 100%;
     height: 100%;
     text-align: center;
-
     &-box {
       font-size: 32px;
+      font-weight: 800;
       margin: 32px auto;
     }
   }

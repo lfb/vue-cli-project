@@ -21,14 +21,22 @@
       })
     },
     async created() {
-      // 获取医生详情
-      await this.getDoctorDetail(this.doctorId);
+      this.fetchData();
     },
     methods: {
-      ...mapActions([
+      ...mapActions({
         // 获取医生详情信息
-        'getDoctorDetail'
-      ]),
+        'getDoctorDetail': 'doctor/getDoctorDetail'
+      }),
+
+      async fetchData() {
+        // 获取医生详情
+        try {
+          await this.getDoctorDetail(this.doctorId);
+        } catch (e) {
+
+        }
+      },
 
       // 路由跳转方法
       routeLink(link) {
@@ -38,6 +46,6 @@
   }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 
 </style>
