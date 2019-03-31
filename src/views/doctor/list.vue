@@ -1,7 +1,10 @@
 <template>
   <section class="content">
     <div class="content-box">
-      Hello vuejs.
+      <h1> Hello vuejs.</h1>
+      <p>
+        <a href="https://github.com/liangfengbo/vue-cli-project" target="_blank">Github 详细介绍</a>
+      </p>
     </div>
   </section>
 </template>
@@ -22,11 +25,23 @@
     created() {
       // 获取医生列表
       // this.fetchData();
+
+      // 开启loading
+      this.openLoading()
+
+      // 关闭loading
+      setTimeout(() => {
+        this.closeLoading();
+      }, 1000)
     },
     methods: {
       ...mapActions({
         // 获取医生列表
-        'getDoctorList': 'doctor/getDoctorList'
+        'getDoctorList': 'doctor/getDoctorList',
+        // 开启loading
+        openLoading: 'loading/openLoading',
+        // 关闭loading
+        closeLoading: 'loading/closeLoading'
       }),
 
       /**
@@ -40,7 +55,7 @@
         try {
           await this.getDoctorList(params);
 
-        }catch (e) {
+        } catch (e) {
 
         }
       },
@@ -60,12 +75,13 @@
   .content {
     position: absolute;
     width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
     text-align: center;
+
     &-box {
       font-size: 32px;
       font-weight: 800;
-      margin: 32px auto;
     }
   }
 </style>
