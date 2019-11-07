@@ -3,6 +3,9 @@
 - 喜欢或对你有帮助的话请点star✨✨，Thanks.
 > A Vue.js project
 
+## Vue cli3.x
+基于 Vue-cli3 搭建的前端开发项目模板，已在 vue.config.js 文件中配置好 webpack，仅供参考，开箱即用，欢迎大家围观指教！[https://github.com/liangfengbo/vue-cli3-template](https://github.com/liangfengbo/vue-cli3-template)
+
 ### 使用
 
 ``` bash
